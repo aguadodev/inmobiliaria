@@ -74,12 +74,23 @@ public abstract class Inmueble implements Comparable<Inmueble> {
             }
         });        
     }
-    
+
     static void sortPrecioAlquilerAsc(List<Inmueble> lista){
-        
-    }   
-    
+        lista.sort(new Comparator<Inmueble>() {
+            @Override
+            public int compare(Inmueble o1, Inmueble o2) {
+                return o1.precioAlquiler - o2.precioAlquiler;
+            }
+        });
+    }
+
     static void sortPrecioVentaAsc(List<Inmueble> lista){
-        
-    } 
+        lista.sort(new Comparator<Inmueble>() {
+            @Override
+            public int compare(Inmueble o1, Inmueble o2) {
+                return o1.precioVenta - o2.precioVenta;
+            }
+        });
+    }
 }
+    

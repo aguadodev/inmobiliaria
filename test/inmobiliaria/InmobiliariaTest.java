@@ -112,6 +112,36 @@ public class InmobiliariaTest {
         assertEquals(resultado, resultadoOrdenada);                
     }        
            
+    @Test
+    public void testSortPrecioAlquilerAsc(){
+        List<Inmueble> resultado = new ArrayList<>();
+        resultado.add(casa1);        
+        resultado.add(piso3);        
+        resultado.add(casa2);        
+        resultado.add(piso1);        
+        resultado.add(piso2);        
+        
+        List<Inmueble> resultadoOrdenada = new ArrayList<>(inmuebles);
+        Inmueble.sortPrecioAlquilerAsc(resultadoOrdenada);
+        
+        assertEquals(resultado, resultadoOrdenada);                
+    }        
+           
+    @Test
+    public void testSortPrecioVentaAsc(){
+        List<Inmueble> resultado = new ArrayList<>();
+        resultado.add(casa1);        
+        resultado.add(piso3);        
+        resultado.add(casa2);        
+        resultado.add(piso1);        
+        resultado.add(piso2);        
+        
+        List<Inmueble> resultadoOrdenada = new ArrayList<>(inmuebles);
+        Inmueble.sortPrecioVentaAsc(resultadoOrdenada);
+        
+        assertEquals(resultado, resultadoOrdenada);                
+    }        
+           
     
       
     

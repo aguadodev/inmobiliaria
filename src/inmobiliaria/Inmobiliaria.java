@@ -79,6 +79,14 @@ public class Inmobiliaria {
         System.out.println("\nINMUEBLES ORDENADOS POR numHabitaciones y luego por m2 (de mayor a menor):");
         mostrarInmuebles(inmuebles);        
 
+        Inmueble.sortPrecioAlquilerAsc(inmuebles);
+        System.out.println("\nINMUEBLES ORDENADOS POR precio de alquiler (de menor a mayor):");
+        mostrarInmuebles(inmuebles);        
+        
+        Inmueble.sortPrecioVentaAsc(inmuebles);
+        System.out.println("\nINMUEBLES ORDENADOS POR precio de venta (de menor a mayor):");
+        mostrarInmuebles(inmuebles);        
+
 
         // 1.4. Inmuebles favoritos de Usuarios
         // Crea dos usuarios y los imprime por pantalla
