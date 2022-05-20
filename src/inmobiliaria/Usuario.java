@@ -29,16 +29,16 @@ public class Usuario {
         return inmueblesFav.remove(i);
     }
     
-    Collection<Inmueble> favoritosUnion(Usuario u1, Usuario u2){
-        
-        return 
+    static Collection<Inmueble> favoritosUnion(Usuario u1, Usuario u2){
+        Collection inmuebles = new TreeSet(u1.inmueblesFav);
+        inmuebles.addAll(u2.inmueblesFav);
+        return inmuebles;
     }
     
-    Collection<Inmueble> favoritosInterseccion(Usuario u1, Usuario u2){
-        return
+    static Collection<Inmueble> favoritosInterseccion(Usuario u1, Usuario u2){
+        Collection inmuebles = new TreeSet(u1.inmueblesFav);
+        inmuebles.retainAll(u2.inmueblesFav);
+        return inmuebles;
     }
-    
-    Collection<Inmueble> noFavoritos(Usuario u1, Usuario u2){
-        return
-    }
+
 }

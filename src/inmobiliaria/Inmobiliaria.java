@@ -94,6 +94,41 @@ public class Inmobiliaria {
         usuario2.addFavorito(piso1); 
         usuario2.addFavorito(casa2); 
         
+        System.out.println("\nINMUEBLES FAVORITOS DE usuario1 o usuario2");
+        mostrarInmuebles(Usuario.favoritosUnion(usuario1, usuario2));                 
+        
+        System.out.println("\nINMUEBLES FAVORITOS DE usuario1 y usuario2 simultáneamente");
+        mostrarInmuebles(Usuario.favoritosInterseccion(usuario1, usuario2));                 
+
+
+        // 1.5. Mapa de propiedades
+        // Crea tres nuevos usuarios
+        Usuario usuario3 = new Usuario("Manuel");
+        Usuario usuario4 = new Usuario("Cristina");
+        Usuario usuario5 = new Usuario("Andrés");
+        
+        Map<Inmueble, Usuario> propiedades = new TreeMap<>();
+        propiedades.put(piso1, usuario3);
+        propiedades.put(casa1, usuario3);
+        propiedades.put(piso2, usuario4);
+        propiedades.put(casa2, usuario4);
+        propiedades.put(piso3, usuario5);
+        
+        comprar(propiedades, piso1, usuario1);
+        
+        System.out.println("\nPROPIEDADES: Inmuebles y Propietarios");
+        imprimirPropiedades(propiedades);
+        
+    }
+ 
+    static void comprar(Map<Inmueble, Usuario> propiedades, Inmueble i, Usuario u){
+        propiedades.put(i,u);
+    }
+    
+    static void imprimirPropiedades(Map<Inmueble, Usuario> propiedades){
+        for (Map.Entry<Inmueble, Usuario> p: propiedades.entrySet()){
+            System.out.println(p.getKey() + ", propiedad de " + p.getValue());
+        }
     }
     
     static void mostrarInmuebles(Collection<Inmueble> c){
