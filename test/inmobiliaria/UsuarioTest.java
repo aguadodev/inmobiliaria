@@ -1,10 +1,15 @@
 
 package inmobiliaria;
 
-import java.util.Collection;
-import java.util.HashSet;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import java.util.*;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  *
@@ -49,17 +54,29 @@ public class UsuarioTest {
     public void testAddFavorito() {
         assertEquals(false, usuario1.addFavorito(piso1));
         assertEquals(true, usuario1.addFavorito(piso3));
+        // Elimina el favorito añadido para dejar los objetos como estaban inicialmente
+        usuario1.removeFavorito(piso3);
     }
 
     @Test
     public void testRemoveFavorito() {
         assertEquals(false, usuario1.removeFavorito(casa2));
         assertEquals(true, usuario1.removeFavorito(piso1));
+        // Añade el favorito eliminado para dejar los objetos como estaban inicialmente        
+        usuario1.addFavorito(piso1);
     }
 
 
     @Test
     public void testFavoritosUnion() {
+        usuario1 = new Usuario("Pedro");
+        usuario2 = new Usuario("Alba");   
+        usuario1.addFavorito(piso1); 
+        usuario1.addFavorito(piso2); 
+        usuario1.addFavorito(casa1); 
+        usuario2.addFavorito(piso1); 
+        usuario2.addFavorito(casa2);    
+        
         Collection<Inmueble> resultado = new HashSet<>();
         resultado.add(casa1);        
         resultado.add(casa2);        
@@ -71,6 +88,14 @@ public class UsuarioTest {
 
     @Test
     public void testFavoritosInterseccion() {
+        usuario1 = new Usuario("Pedro");
+        usuario2 = new Usuario("Alba");   
+        usuario1.addFavorito(piso1); 
+        usuario1.addFavorito(piso2); 
+        usuario1.addFavorito(casa1); 
+        usuario2.addFavorito(piso1); 
+        usuario2.addFavorito(casa2);    
+        
         Collection<Inmueble> resultado = new HashSet<>();      
         resultado.add(piso1);        
         
